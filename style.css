@@ -1,0 +1,389 @@
+/* ==========================================================================
+   1. GLOBAL SYSTEM VARIABLES & RESETS
+   ========================================================================== */
+:root {
+    --bg-main: #f8fafc;
+    --sidebar-bg: #0f172a;
+    --sidebar-text: #94a3b8;
+    --sidebar-active: #ffffff;
+    --sidebar-hover: #1e293b;
+    
+    --card-bg: #ffffff;
+    --primary-light: #f1f5f9;
+    --accent-color: #6366f1; /* Premium Indigo Accent */
+    --accent-hover: #4f46e5;
+    
+    --dark-text: #1e293b;
+    --muted-text: #64748b;
+    --border-color: #e2e8f0;
+    
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --transition-smooth: all 0.25s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--dark-text);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. APP SCREEN LAYOUT FRAMEWORK
+   ========================================================================== */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* ==========================================================================
+   3. FIXED LEFT NAVIGATION SIDEBAR
+   ========================================================================== */
+.sidebar {
+    width: 280px;
+    background-color: var(--sidebar-bg);
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.brand-icon {
+    font-size: 1.5rem;
+}
+
+.brand-text h2 {
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.brand-text p {
+    color: var(--accent-color);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+/* Sidebar Navigation Items */
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+
+.menu-item:hover {
+    background-color: var(--sidebar-hover);
+    color: var(--sidebar-active);
+}
+
+.menu-item.active {
+    background-color: var(--accent-color);
+    color: var(--sidebar-active);
+    font-weight: 600;
+}
+
+.menu-icon {
+    font-size: 1.1rem;
+}
+
+.sidebar-footer {
+    border-top: 1px solid #1e293b;
+    padding-top: 20px;
+}
+
+.sidebar-footer p {
+    color: var(--sidebar-text);
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   4. MAIN VIEWPORT CONTAINER
+   ========================================================================== */
+.main-content {
+    flex-grow: 1;
+    margin-left: 280px; /* Gives room for fixed sidebar */
+    padding: 40px;
+    max-width: 1200px;
+}
+
+/* ==========================================================================
+   5. PREMIUM HERO BANNER DESIGN
+   ========================================================================== */
+.hero-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    border: 1px solid var(--border-color);
+    padding: 48px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.hero-badge {
+    background-color: rgba(99, 102, 241, 0.1);
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    line-height: 1.3;
+    max-width: 800px;
+}
+
+.hero-subtitle {
+    color: var(--muted-text);
+    font-size: 1.1rem;
+    margin-top: 16px;
+    max-width: 720px;
+    line-height: 1.6;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+/* Button UI Components */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: var(--card-bg);
+    color: var(--dark-text);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   6. GRID INTERFACE DASHBOARD
+   ========================================================================== */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.grid-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.01);
+}
+
+.card-header-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.card-badge-icon {
+    font-size: 1.75rem;
+    background-color: var(--primary-light);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+}
+
+.grid-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+.grid-card p {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.card-action-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition-smooth);
+}
+
+.card-action-link:hover {
+    color: var(--accent-hover);
+    padding-left: 4px;
+}
+
+/* ==========================================================================
+   7. STATS METRICS STRIP
+   ========================================================================== */
+.stats-bar {
+    display: flex;
+    background-color: var(--sidebar-bg);
+    color: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin-bottom: 32px;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.stat-node {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-num {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--sidebar-active);
+}
+
+.stat-txt {
+    font-size: 0.85rem;
+    color: var(--sidebar-text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   8. COMPLIANCE FOOTER
+   ========================================================================== */
+.content-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 24px;
+    text-align: center;
+}
+
+.content-footer p {
+    font-size: 0.85rem;
+    color: var(--muted-text);
+}
+
+/* ==========================================================================
+   9. MOBILE AND RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 992px) {
+    .app-layout {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        position: relative;
+        width: 100%;
+        padding: 24px;
+    }
+    
+    .sidebar-brand {
+        margin-bottom: 24px;
+    }
+    
+    .sidebar-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .menu-item {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+    
+    .sidebar-footer {
+        display: none; /* Hide bottom message block on mobile panels */
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 24px;
+    }
+    
+    .hero-card {
+        padding: 32px 24px;
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .stats-bar {
+        flex-direction: column;
+        gap: 24px;
+    }
+}
